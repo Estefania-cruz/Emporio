@@ -1,0 +1,119 @@
+table {
+    border-collapse: collapse;
+}
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+}
+.table-recientes {
+    .p-datatable-thead {
+        tr {
+            border-top: 1px solid $white-light;
+            border-bottom: 2px solid $white-light;
+        }
+        td {
+            font-weight: 700;
+            padding: 0.5rem 1rem;
+            text-align: center;
+        }
+    }
+    td {
+        text-align: center;
+        font-size: 0.9rem;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid $light-gray;
+        .status {
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+    }
+}
+
+.table-insumos,
+.table-productos,
+.table-consultas {
+    .p-datatable {
+        height: 465px;
+        overflow: auto;
+    }
+    .p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
+        background-color: $main-color;
+        border-color: $main-color;
+        color: $white-color;
+    }
+    .p-dropdown:not(.p-disabled):hover {
+        border-color: $main-color;
+    }
+    .p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight {
+        background-color: $main-color;
+    }
+    input#busqueda:enabled:hover {
+        border-bottom: 1px solid $dark-color;
+    }
+    input#busqueda {
+        border: none;
+        border-bottom: 1px solid $dark-color;
+        border-radius: 0;
+        &:enabled:focus {
+            box-shadow: none;
+        }
+    }
+}
+.table-productos {
+    .p-datatable {
+        height: 550px;
+    }
+    .div-flex {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        form {
+            width: 100%;
+            #inputtext,
+            #dropdown,
+            .inputsearch {
+                width: 33%;
+            }
+            .precio {
+                width: 10% !important;
+            }
+        }
+    }
+}
+.table-consultas {
+    overflow: auto;
+}
+input#search {
+    &:focus {
+        box-shadow: 0 0 0 1px $main-color;
+        border: 1px solid $main-color;
+    }
+    &:hover {
+        border-color: $main-color;
+    }
+}
+.p-datatable .p-datatable-tbody > tr > {
+    td {
+        text-align: center !important;
+    }
+}
+.p-datatable .p-datatable-thead > tr > th {
+    text-align: center !important;
+    background-color: #eef0f5ba;
+    border: 1px solid #dedfed;
+    border-width: 1px;
+}
+input.p-column-filter.p-inputtext.p-component {
+    width: 100%;
+}
+.p-datatable .p-datatable-tbody > tr.p-highlight {
+    background: $gray-table !important;
+    color: $dark-color !important;
+}
+.p-datatable .p-datatable-tbody > tr > td {
+    border: 1px solid #dedfed;
+    border-width: 1px;
+    padding: 0.5rem;
+}

@@ -1,0 +1,133 @@
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+   
+    list-style: none;
+    text-decoration: none;
+    
+}
+body{
+    font: 400 .8rem 'Open Sans', sans-serif;
+    background-color: $body;
+}
+h4{
+    a{
+        color: $dark-color;
+        &:hover{
+            text-decoration: overline ;
+        }
+    }
+}
+.font-bold{
+    font-weight: 600;
+}
+
+.button{
+    background-color: $main-color;
+    border-radius: 15px;
+    color: $white-color;
+    font-size: .8rem;
+    padding: .5rem 2rem;
+    border: 1px solid $main-color;
+}
+input[type="button"]{
+    display: flex;
+}
+.grid-template-columns-60-auto{
+    grid-template-columns: 60% auto !important;
+}
+.grid-template-columns-2{
+    grid-template-columns: repeat(2, 1fr) !important;
+}
+.grid-template-columns-100{
+    grid-template-columns: 100% !important;
+}
+.grid-template-columns-20-auto{
+    grid-template-columns: 20% auto !important;
+}
+.div-flex form{
+    display: flex;
+    align-items: center;
+    .p-button{
+        color: $main-color;
+        background-color: transparent;
+        border: 1px solid $main-color;
+        margin-left: 1rem;
+        border-radius: 3px;
+        &:hover{
+            background-color: $main-color;
+            color: $white-color;
+            border: 1px solid $main-color
+        }
+    }
+}
+
+.p-button.p-button-warning.p-button-outlined:enabled:hover, .p-buttonset.p-button-warning > .p-button.p-button-outlined:enabled:hover, .p-splitbutton.p-button-warning > .p-button.p-button-outlined:enabled:hover {
+    background: $orange-process !important;
+    color: $white-color !important;
+    
+}
+.p-button.p-button-warning.p-button-outlined, .p-buttonset.p-button-warning > .p-button.p-button-outlined, .p-splitbutton.p-button-warning > .p-button.p-button-outlined{
+    color: $orange-process;
+}
+.p-button.p-button-danger.p-button-outlined:enabled:hover, .p-buttonset.p-button-danger > .p-button.p-button-outlined:enabled:hover, .p-splitbutton.p-button-danger > .p-button.p-button-outlined:enabled:hover {
+    background: $red-canceled !important;
+    color: $white-color !important;
+}
+.p-button.p-button-danger.p-button-outlined, .p-buttonset.p-button-danger > .p-button.p-button-outlined, .p-splitbutton.p-button-danger > .p-button.p-button-outlined {
+    color: $red-canceled;
+}
+.status.green{
+    background-color: $green-success;
+    margin-right: .2rem;
+}
+.status.orange{
+    background-color: $orange-process;
+    margin-right: .6rem;
+}
+.state-success{
+   color: $green-success;
+    text-shadow: 1px 0 1px;
+}.state-coming{
+    color: $orange-process;
+     text-shadow: 1px 0 1px;
+ }
+.status.gray-light{
+    background-color: $gray-disbabled;
+}
+.status.red{
+    background-color: $red-canceled;
+}
+
+.table-header.div-flex{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin: 1rem 0;
+}
+.wgt-auto{
+    width: auto;
+}
+.p-datatable-header{
+    padding: 1rem 0 !important;
+}
+.display-none{
+    display: none !important;
+}
+.flex-column{
+    flex-direction: column;
+}
+.form-group.flex-column label {
+    padding-left: 1.5rem;
+}
+.calendar {
+    margin: 0 1rem;
+}
+.p-left{
+    padding-left: 1.5rem;
+}
+.m-13rem{
+    margin: 1.3rem 0;
+}

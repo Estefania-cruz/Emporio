@@ -1,0 +1,180 @@
+form {
+    padding: 0.5rem;
+
+    .form-group {
+        display: flex;
+        padding: 0;
+        .p-float-label {
+            width: 100%;
+            margin: 0 1rem;
+        }
+        &:last-of-type {
+            justify-content: center;
+        }
+    }
+    .p-inputtext,
+    .p-dropdown {
+        border-radius: 0;
+        margin-left: 0.5rem;
+    }
+    .p-float-label label {
+        left: 1rem;
+        color: $dark-color;
+    }
+    input {
+        &[type="text"],
+        &[type="email"],
+        &[type="password"] {
+            margin: 1.5rem 0.5rem;
+            width: 100%;
+        }
+    }
+    .p-inputtext:enabled:focus {
+        box-shadow: none;
+    }
+    #dropdown,
+    #multiselec {
+        width: 100%;
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid $dark-color;
+        margin: 1.5rem 0.5rem;
+        .p-dropdown-label {
+            color: $dark-color;
+        }
+        .p-dropdown-trigger,
+        .p-multiselect-trigger {
+            color: $dark-color;
+        }
+        .p-dropdown-panel {
+            border: none;
+            .p-dropdown-items-wrapper {
+                background: #dfdfdf;
+            }
+            .p-dropdown-items .p-dropdown-item {
+                color: rgb(0 0 0 / 87%);
+                background: transparent;
+            }
+            .p-dropdown-items .p-dropdown-item:not(.p-highlight):not(.p-disabled):hover {
+                color: $white-color;
+                background: $main-color;
+            }
+        }
+        .p-multiselect-panel .p-multiselect-items .p-multiselect-item:not(.p-highlight):not(.p-disabled):hover {
+            color: $white-color;
+            background: $main-color;
+        }
+
+        .p-multiselect-panel .p-multiselect-items .p-multiselect-item.p-highlight {
+            background: $main-color;
+        }
+        .p-multiselect-panel .p-multiselect-header {
+            border-bottom: 1px solid $prime-gray;
+        }
+        .p-multiselect-panel .p-multiselect-items .p-multiselect-item:focus {
+            box-shadow: none;
+        }
+    }
+    #multiselec {
+        .p-multiselect-label.p-placeholder {
+            color: $dark-color;
+        }
+    }
+    .accionesForm {
+        width: 100%;
+        padding: 1rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        .p-button {
+            color: $main-color;
+            background-color: transparent;
+            border: 1px solid $main-color;
+            margin: auto;
+            &:hover {
+                background-color: $main-color;
+                color: $white-color;
+                border: 1px solid $main-color;
+            }
+        }
+    }
+}
+.p-dropdown:not(.p-disabled).p-focus {
+    box-shadow: none !important;
+}
+.frm {
+    .form-group {
+        flex-wrap: nowrap;
+    }
+}
+.p-dialog {
+    border: none !important;
+    width: 500px;
+    .p-dialog-content {
+        padding: 0.5rem 0 !important;
+        height: auto;
+        .confirmation-content {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            padding: 0 1rem;
+        }
+    }
+    .p-dialog-footer {
+        padding: 0.5rem !important;
+        .p-button.p-button-text {
+            color: $dark-color;
+            &:hover {
+                background-color: rgb(51 255 7 / 13%) !important;
+            }
+        }
+    }
+    .p-dialog-header {
+        padding: 0.7rem !important;
+    }
+}
+
+.p-dialog-content,
+.p-dialog-header,
+.p-dialog-footer {
+    color: $dark-color !important;
+    border: none !important;
+}
+button.p-dialog-header-icon.p-dialog-header-close.p-link {
+    color: $dark-color;
+}
+.p-dialog .p-dialog-header .p-dialog-header-icon:enabled:hover {
+    color: $dark-color !important;
+    border-color: transparent !important;
+    background: transparent !important;
+}
+
+.p-float-label input:focus ~ label,
+.p-float-label input.p-filled ~ label,
+.p-float-label textarea:focus ~ label,
+.p-float-label textarea.p-filled ~ label,
+.p-float-label .p-inputwrapper-focus ~ label,
+.p-float-label .p-inputwrapper-filled ~ label {
+    top: 25px !important;
+    font-size: 12px;
+    background-color: $white-color;
+}
+.p-checkbox .p-checkbox-box.p-highlight {
+    border: 1px solid $main-color !important;
+    background: $main-color !important;
+}
+.p-checkbox .p-checkbox-box:not(.p-disabled):hover {
+    border-color: $main-color !important;
+}
+.p-multiselect:not(.p-disabled).p-focus {
+    box-shadow: none !important;
+}
+.p-inputtextarea {
+    width: 100%;
+}
+.p-calendar {
+    width: 100%;
+}
+// .p-fileupload.p-fileupload-advanced.p-component {
+//     width: 100%;
+// }
