@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue"></script>
+    <link href="https://unpkg.com/primevue/resources/themes/saga-blue/theme.css " rel="stylesheet">
+    <link href="https://unpkg.com/primevue/resources/primevue.min.css " rel="stylesheet">
+    <link href="https://unpkg.com/primeicons/primeicons.css " rel="stylesheet">
+    <!--Fonts-->
+    <link rel="stylesheet"
+        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Raleway:wght@300&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+        rel="stylesheet">
+    <script src="node_modules/primevue/components/datatable/datatable.umd.min.js"></script>
+    <script src="node_modules/primevue/components/column/column.umd.min.js"></script>
+    <script src="node_modules/primevue/components/button/button.umd.min.js"></script>
+    <script src="node_modules/primevue/components/inputtext/inputtext.umd.min.js"></script>
+    <script src="node_modules/primevue/components/dialog/dialog.umd.min.js"></script>
+    <script src="node_modules/primevue/components/dropdown/dropdown.umd.min.js"></script>
+    <script src="node_modules/primevue/components/textarea/textarea.umd.min.js"></script>
+    <script src="node_modules/primevue/components/calendar/calendar.umd.min.js"></script>
+    <script src="node_modules/primevue/components/fileupload/fileupload.umd.js"></script>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+
+    <title>Productos</title>
+</head>
+
+<body class="sb-nav-fixed">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <!-- Navbar Brand-->
+        <a class="navbar-brand ps-3" href="#">Productos</a>
+        <!-- Sidebar Toggle-->
+        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"> <span class="las la-bars"></span></i></button>
+    </nav>
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+                        <div class="sb-sidenav-menu-heading">Inicio</div>
+                        <a class="nav-link" href="index.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-comment"></i></div>
+                            Menu
+                        </a>
+                        
+                        <a class="nav-link" href="familia.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-house-user"></i></div>
+                            Familia
+                        </a>
+                        <a class="nav-link" href="promociones.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-shopping-bag"></i></div>
+                            Promociones
+                        </a>
+                        <a class="nav-link" href="categoria.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-shopping-bag"></i></div>
+                            Categorias
+
+                        </a>
+                        <a class="nav-link" href="empresas.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-building"></i></div>
+                            Administracion de Empresas
+                        </a>
+                        <a class="nav-link" href="usuarios.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
+                            Usuarios
+                        </a>
+                   
+                    </div>
+                </div>
+                <div class="sb-sidenav-footer">
+                    <div class="small">FER Y FANY:</div>
+                    PROPUESTA
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="main-content" id="app">
+        <header>
+          
+            <!-- <div class="search-wrapper">
+                <div class="input-search">
+                    <div class="p-inputgroup">
+                        <p-inputtext placeholder="Buscar" id="search" autocomplete="off"></p-inputtext>
+                        <p-button icon="pi pi-search" class="p-button-warning gotosearch"></p-button>
+                       
+                    </div>
+                </div>
+            </div> -->
+            <!-- <span class="p-input-icon-left">
+                <i class="pi pi-search"></i>
+                <p-inputtext v-model="filters['global']" placeholder="Búsqueda Global" />
+            </span> -->
+            <!--   <div class="user-wrapper">
+              <img src="assets/img//userimg.jpg" width="40px" height="40px" > 
+                
+                   
+                    <nav class="nav-hover">
+                        <ul>
+                            <li class="font-bold">Regresar:</li>
+                        </ul> 
+                        <ul class="desplegable">   
+                            <li><a href="http://gradiosafamilia.com/menu.html">Menu principal</a></li>
+                            <li><a href="#">Menu documentos </a></li>
+                        </ul>
+                    </nav>
+                   
+                
+
+            </div> 
+            -->
+        </header>
+        <main class="main">
+             <!--parte-->
+           <div>
+            <center>
+                <img src="/assets/img/0153_t_chocolate-cream-logo_1.png" />
+            </center>
+        </div>
+            <div class="recent-grid grid-template-columns-100">
+                <div class="projects">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="table-header div-flex">
+
+                                <span class="p-input-icon-left">
+                                    <i class="pi pi-search"></i>
+                                    <p-inputtext v-model="filters['global']" placeholder="Búsqueda Global"
+                                        id="search" />
+                                </span>
+
+                                <form class="wgt-auto">
+                                    <p-button :label="tablaDinamic == true ? 'Vendidos' : 'En stock'"
+                                        class="p-button-edit"
+                                        :icon="tablaDinamic == true ? 'pi pi-external-link' : 'pi pi-inbox'"
+                                        @click="tablaDinamic == true ? tablaDinamic = false : tablaDinamic = true">
+                                    </p-button>
+                                    <p-button label="Agregar Producto" class="p-button-edit" icon="pi pi-plus"
+                                        @click="openagregar()"></p-button>
+
+
+                                </form>
+                            </div>
+                        </div>
+                    
+                        <div class="card-body">
+                            <div class="container-form">
+                                <form>
+                                    <div class="form-group">
+                                        <span class="p-float-label">
+                                            <p-dropdown v-model="txtslcProductos" :options="arrayProductos" option-label="claveEmpresa" placeholder="Selecciona un usuario" />
+                                        </span>
+                                    </div>
+                                    <div class="form-group">
+                                       
+                                        <span class="p-float-label">
+                                            <p-inputtext id="txtclaveEmpresa" required type="text"
+                                                v-model="txtclaveEmpresa"></p-inputtext>
+                                            <label for="txtclaveEmpresa">Clave Empresa</label>
+                                        </span>
+                                        <span class="p-float-label">
+                                            <p-inputtext id="txtsku" required type="text"
+                                                v-model="txtsku"></p-inputtext>
+                                            <label for="txtsku">SKU</label>
+                                        </span>
+                                        <span class="p-float-label">
+                                            <p-inputtext id="txtdescripcion" required type="text"
+                                                v-model="txtdescripcion"></p-inputtext>
+                                            <label for="txtdescripcion">Descripcion</label>
+                                        </span>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <span class="p-float-label">
+                                            <p-inputtext id="txtdescripcionCompleta" required type="email"
+                                                v-model="txtdescripcionCompleta"></p-inputtext>
+                                            <label for="txtdescripcionCompleta">Descripcion Completa</label>
+                                        </span>
+                                        <span class="p-float-label">
+                                            <p-inputtext id="txtcaracteristicas" type="text" required
+                                                v-model="txtcaracteristicas"></p-inputtext>
+                                            <label for="txtcaracteristicas">Caracteristicas</label>
+                                        </span>
+                                        <span class="p-float-label">
+                                            <p-inputtext id="txtPrecioVenta" required type="text"
+                                                v-model="txtPrecioVenta"></p-inputtext>
+                                            <label for="txtPrecioVenta">Precio Venta</label>
+                                        </span>
+                                    </div>
+
+                                    <div class="form-group">
+                                       
+                                        <span class="p-float-label">
+                                            <p-inputtext id="txtcaducidad" required type="text"
+                                                v-model="txtcaducidad"></p-inputtext>
+                                            <label for="txtcaducidad">Caducidad</label>
+                                        </span>
+                                        <span class="p-float-label">
+                                            <p-inputtext id="txtexistenciaActual" required type="email"
+                                                v-model="txtexistenciaActual"></p-inputtext>
+                                            <label for="txtexistenciaActual">existencia Actual</label>
+                                        </span>
+                                        <span class="p-float-label">
+                                            <p-inputtext id="txtminimoStock" type="text" required
+                                                v-model="txtminimoStock"></p-inputtext>
+                                            <label for="txtminimoStock">Minimo Stock</label>
+                                        </span>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <span class="p-float-label">
+                                            <p-inputtext id="txtmaximoStock" required type="text"
+                                                v-model="txtmaximoStock"></p-inputtext>
+                                            <label for="txtmaximoStock">Maximo Stock</label>
+                                        </span>
+                                        <span class="p-float-label">
+                                            <p-inputtext id="txtpuntoReorden" required type="text"
+                                                v-model="txtpuntoReorden"></p-inputtext>
+                                            <label for="txtpuntoReorden">Punto Reorden</label>
+                                        </span>
+                                        <span class="p-float-label">
+                                            <p-inputtext id="txtfechaultimaEntrada" required type="text"
+                                                v-model="txtfechaultimaEntrada"></p-inputtext>
+                                            <label for="txtfechaultimaEntrada">Fecha Ultima Entrada</label>
+                                        </span>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <span class="p-float-label">
+                                            <p-inputtext id="txtPrecioCosto" required type="text"
+                                                v-model="txtPrecioCosto"></p-inputtext>
+                                            <label for="txtPrecioCosto">Precio Costo</label>
+                                        </span>
+                                        <span class="p-float-label">
+                                            <p-inputtext id="txtuMedida" required type="text"
+                                                v-model="txtuMedida"></p-inputtext>
+                                            <label for="txtuMedida">Unidad de Medida</label>
+                                        </span>
+                                        <span class="p-float-label">
+                                            <p-inputtext id="txtcodigoProveedor" required type="text"
+                                                v-model="txtcodigoProveedor"></p-inputtext>
+                                            <label for="txtcodigoProveedor">Codigo Proveedor</label>
+                                        </span>
+                                    </div>
+    
+                                    <div class="form-group">
+                                        <p-fileupload name="demo[]" url="localhost:8080" @upload="onUpload()"
+                                            @error="errorUpload" :multiple="true" accept="image/*"
+                                            :max-file-size="1000000">
+                                            <template #empty>
+                                                <p>Sube una imagen</p>
+                                            </template>
+                                        </p-fileupload>
+                                    </div>
+    
+                                    <div class="form-group">
+                                        <p-button label="Guardar Cambios" class=" p-button-edit" icon="pi pi-save"></p-button>
+                                        <p-button label="Eliminar Usuario" class=" p-button-edit" icon="pi pi-trash"></p-button>
+                                    </div>
+    
+                                </form>
+                            </div>
+                        </div>
+
+                     <!-- <div class="card-body">
+                            <p-datatable removable-sort selection-mode="single" :scrollable="true" scroll-height="600px"
+                                :resizable-columns="true" column-resize-mode="fit" :filters="filters"
+                                :value="arrayProductos">
+                                <p-column  header="Retirar" header-style="width: 5em">
+                                <template #body="slotProps">
+                                   
+                                    <p-button icon="pi pi-external-link" class="p-button-rounded p-button-secondary p-button-outlined p-button-edit" v-if="slotProps.data.activo" @click="abrirConfirmacionDesactivar(slotProps.data)"></p-button> 
+                                    <p-button icon="pi pi-clone" class="p-button-rounded p-button-secondary p-button-outlined p-button-edit"></p-button>
+    
+                                </template>
+                            </p-column> 
+                           
+                                <p-column field="claveEmpresa" header="Clave Empresa" :sortable="true"
+                                    header-style="width: 7em">
+                                    <template #body="slotProps">
+                                        <span class="p-colum-title">Clave Empresa</span>
+                                        {{slotProps.data.claveEmpresa}}
+                                    </template>
+                                </p-column>
+                                <p-column field="id" header="ID" :sortable="true" header-style="width: 7em">
+                                    <template #body="slotProps">
+                                        <span class="p-colum-title">ID</span>
+                                        {{slotProps.data.id}}
+                                    </template>
+                                </p-column>
+                                <p-column field="SKU" header="SKU" header-style="width: 7em">
+                                    <template #body="slotProps">
+                                        <span class="p-colum-title">SKU</span>
+                                        {{slotProps.data.SKU}}
+                                    </template>
+                                </p-column>
+                                <p-column field="codigoProveedor" header="Codigo Proveedor" :sortable="true"
+                                    header-style="width: 7em">
+                                    <template #body="slotProps">
+                                        <span class="p-colum-title">Codigo Proveedor</span>
+                                        {{slotProps.data.codigoProveedor}}
+                                    </template>
+                                </p-column>
+                                <p-column field="descripcion" header="Descripcion" :sortable="true"
+                                    header-style="width: 10em">
+                                    <template #body="slotProps">
+                                        <span class="p-colum-title">Descripcion</span>
+                                        {{slotProps.data.descripcion}}
+                                    </template>
+                                </p-column>
+                                <p-column field="uMedida" header="Unidad Medida" header-style="width: 7em">
+                                    <template #body="slotProps">
+                                        <span class="p-colum-title">Unidad Medida</span>
+                                        {{slotProps.data.uMedida}}
+                                    </template>
+                                </p-column>
+                                <p-column field="precioVenta" header="Precio Venta" header-style="width: 7em">
+                                    <template #body="slotProps">
+                                        <span class="p-colum-title">Precio Venta</span>
+                                        {{slotProps.data.precioVenta}}
+                                    </template>
+                                </p-column>
+                                <p-column field="precioCosto" header="Precio Costo" :sortable="true"
+                                    header-style="width: 7em">
+                                    <template #body="slotProps">
+                                        <span class="p-colum-title">Precio Costo</span>
+                                        {{slotProps.data.precioCosto}}
+                                    </template>
+                                </p-column>
+                                <p-column field="descpCompleta" header="Descp. Completa" header-style="width: 10em">
+                                    <template #body="slotProps">
+                                        <span class="p-colum-title">Descp. Completa</span>
+                                        {{slotProps.data.descpCompleta}}
+                                    </template>
+                                </p-column>
+
+                                <p-column field="caracteristicas" header="Caracteristicas" header-style="width: 7em">
+                                    <template #body="slotProps">
+                                        <span class="p-colum-title">Caracteristicas</span>
+                                        {{slotProps.data.caracteristicas}}
+                                    </template>
+                                </p-column>
+                                <p-column field="existenciaActual" header="Existencia Actual" :sortable="true"
+                                    header-style="width: 7em">
+                                    <template #body="slotProps">
+                                        <span class="p-colum-title">Existencia Actual</span>
+                                        {{slotProps.data.existenciaActual}}
+                                    </template>
+                                </p-column>
+                                <p-column field="minimoStock" header="Minimo Stock" :sortable="true"
+                                    header-style="width: 7em">
+                                    <template #body="slotProps">
+                                        <span class="p-colum-title">Minimo Stock</span>
+                                        {{slotProps.data.minimoStock}}
+                                    </template>
+                                </p-column>
+                                <p-column field="maximoStock" header="Maximo Stock" :sortable="true"
+                                    header-style="width: 7em">
+                                    <template #body="slotProps">
+                                        <span class="p-colum-title">Maximo Stock</span>
+                                        {{slotProps.data.maximoStock}}
+                                    </template>
+                                </p-column>
+                                <p-column field="puntoReorden" header="Punto Reorden" header-style="width: 7em">
+                                    <template #body="slotProps">
+                                        <span class="p-colum-title">Punto Reorden</span>
+                                        {{slotProps.data.puntoReorden}}
+                                    </template>
+                                </p-column>
+                                <p-column field="caducidad" header="Caducidad" header-style="width: 7em">
+                                    <template #body="slotProps">
+                                        <span class="p-colum-title">Caducidad</span>
+                                        {{slotProps.data.caducidad}}
+                                    </template>
+                                </p-column>
+                                <p-column field="fechaultimaEntrada" header="Fecha Ultima Entrada"
+                                    header-style="width: 7em">
+                                    <template #body="slotProps">
+                                        <span class="p-colum-title">Fecha Ultima Entrada</span>
+                                        {{slotProps.data.fechaultimaEntrada}}
+                                    </template>
+                                </p-column>
+                                <p-column field="imagen" header="Imagen" header-style="width: 7em">
+                                    <template #body="slotProps">
+                                        <span class="p-colum-title">Imagen</span>
+                                        <img  :src="'assets/img/' + slotProps.data.imagen" width="32" />
+                                    </template>
+                                </p-column>
+                                
+                                <p-column  header="Acciones" header-style="width: 5em">
+                                    <template #body="slotProps">
+                                       
+                                        <p-button icon="pi pi-clone" class="p-button-rounded p-button-secondary p-button-outlined p-button-edit"  @click="pdialogActualizar(slotProps.data)"></p-button>
+        
+                                    </template>
+                                </p-column>
+                            </p-datatable>
+                        </div>-->  
+
+
+                    </div>
+                </div>
+            </div>
+          
+        </main>
+    </div>
+    <script src="assets/js/main.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+    <script src="assets/demo/chart-area-demo.js"></script>
+    <script src="assets/demo/chart-bar-demo.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+    <script src="js/datatables-simple-demo.js"></script>
+    <script>
+        var vm = new Vue({
+            components: {
+                'p-datatable': datatable,
+                'p-column': column,
+                'p-inputtext': inputtext,
+                'p-textarea': textarea,
+                'p-dropdown': dropdown,
+                'p-button': button,
+                'p-dialog': dialog,
+                'p-calendar': calendar,
+                'p-fileupload': fileupload,
+            },
+            data() {
+                return {
+                    rutaAPI: "http://localhost:/",
+                    selectedProducts: null,
+                    slcfilter: null,
+                    filters: {},
+                    tablaDinamic: true,
+                    displayAgregar: false,
+                    displayActualizar: false,
+                    txtclaveEmpresa: null,
+                    txtsku: null,
+                    txtcodigoProveedor: null,
+                    txtdescripcion: null,
+                    txtuMedida: null,
+                    txtPrecioVenta: null,
+                    txtPrecioCosto: null,
+                    txtdescripcionCompleta: null,
+                    txtcaracteristicas: null,
+                    txtexistenciaActual: null,
+                    txtminimoStock: null,
+                    txtmaximoStock: null,
+                    txtpuntoReorden: null,
+                    txtcaducidad: null,
+                    txtfechaultimaEntrada: null,
+                    txtimagen:null,
+
+                    txtclaveEmpresaA: null,
+                    txtskuA: null,
+                    txtcodigoProveedorA: null,
+                    txtdescripcionA: null,
+                    txtuMedidaA: null,
+                    txtPrecioVentaA: null,
+                    txtPrecioCostoA: null,
+                    txtdescripcionCompletaA: null,
+                    txtcaracteristicasA: null,
+                    txtexistenciaActualA: null,
+                    txtminimoStockA: null,
+                    txtmaximoStockA: null,
+                    txtpuntoReordenA: null,
+                    txtcaducidadA: null,
+                    txtfechaultimaEntradaA: null,
+                    txtimagenA:null,
+                    arrayInactivosA: [],
+                    arrayActivosA: [],
+                    idProducto: 0,
+                    arrayProductos: [
+                        {
+                            id: 1,
+                            claveEmpresa: "1235",
+                            SKU: "01BHEJ",
+                            codigoProveedor: "12deyi",
+                            descripcion: "Cereal Kellogg´s Krispy Kreme sabor a dona glaseada 190 gm",
+                            uMedida: "gr",
+                            precioVenta: "$25.00 MXN",
+                            precioCosto: "$30.00 MXN",
+                            descpCompleta: "Disfruta en cada bocado una explosión de sabor con Kelloggs y nuestro sabor a dona glaseada de Krispy Kreme.",
+                            caracteristicas: "paquete 10pz color azul",
+                            existenciaActual: 1200,
+                            minimoStock: 100,
+                            maximoStock: 5000,
+                            puntoReorden: 2020,
+                            caducidad: "21/12/2022",
+                            fechaultimaEntrada: "21/09/2021",
+                            imagen: "cereal.PNG",
+                            
+
+                        }
+
+                    ],
+
+                }
+            },
+            mounted() {
+
+
+            },
+            methods: {
+                openagregar() {
+                    this.displayAgregar = true;
+                },  
+                openActualizar(){
+                    this.displayActualizar = true;
+                },
+                errorUpload(){
+                    window.alert("ha ocurrido un error");
+                },
+                onUpload() {
+                    
+                    window.alert("Imagen subida con exito.");
+                   // this.inventarioLaptops();
+                },
+                pdialogActualizar(field){
+                    this.openActualizar();
+                    //Athis.idProducto = field.id,
+                    this.txtclaveEmpresaA = field.claveEmpresa,
+                    this.txtskuA = field.SKU,
+                    this.txtcodigoProveedorA = field.codigoProveedor,
+                    this.txtdescripcionA = field.descripcion,
+                    this.txtuMedidaA = field.uMedida,
+                    this.txtPrecioVentaA = field.precioVenta,
+                    this.txtPrecioCostoA = field.precioCosto,
+                    this.txtdescripcionCompletaA = field.descpCompleta,
+                    this.txtcaracteristicasA = field.caracteristicas,
+                    this.txtexistenciaActualA = field.existenciaActual,
+                    this.txtminimoStockA = field.minimoStock,
+                    this.txtmaximoStockA = field.maximoStock,
+                    this.txtpuntoReordenA = field.puntoReorden,
+                    this.txtfechaultimaEntradaA = field.fechaultimaEntrada,
+                    this.txtcaducidadA = field.caducidad,
+                    this.txtimagenA = field.imagen
+
+                },
+
+            },
+        }).$mount('#app');
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/primevue/resources/themes/saga-blue/theme.css " rel="stylesheet">
+    <link href="https://unpkg.com/primevue/resources/primevue.min.css " rel="stylesheet">
+    <link href="https://unpkg.com/primeicons/primeicons.css " rel="stylesheet">
+    <!--Fonts-->
+    <link rel="stylesheet"
+        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Raleway:wght@300&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="node_modules/primevue/components/datatable/datatable.umd.min.js"></script>
+    <script src="node_modules/primevue/components/column/column.umd.min.js"></script>
+    <script src="node_modules/primevue/components/button/button.umd.min.js"></script>
+    <script src="node_modules/primevue/components/inputtext/inputtext.umd.min.js"></script>
+    <script src="node_modules/primevue/components/dialog/dialog.umd.min.js"></script>
+    <script src="node_modules/primevue/components/dropdown/dropdown.umd.min.js"></script>
+    <script src="node_modules/primevue/components/textarea/textarea.umd.min.js"></script>
+    <script src="node_modules/primevue/components/calendar/calendar.umd.min.js"></script>
+    <script src="node_modules/primevue/components/fileupload/fileupload.umd.min.js"></script>
+
+
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+
+    <title>Empresa</title>
+</head>
+
+<body class="sb-nav-fixed">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <!-- Navbar Brand-->
+        <a class="navbar-brand ps-3" href="#">Empresas</a>
+        <!-- Sidebar Toggle-->
+        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"> <span class="las la-bars"></span></i></button>
+    </nav>
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+                        <div class="sb-sidenav-menu-heading">Inicio</div>
+                        <a class="nav-link" href="index.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-comment"></i></div>
+                            Menu
+                        </a>
+                        
+                        <a class="nav-link" href="familia.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-house-user"></i></div>
+                            Familia
+                        </a>
+                        <a class="nav-link" href="promociones.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-shopping-bag"></i></div>
+                            Promociones
+                        </a>
+                        <a class="nav-link" href="categoria.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-shopping-bag"></i></div>
+                            Categorias
+
+                        </a>
+                        <a class="nav-link" href="productos.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-building"></i></div>
+                            productos
+                        </a>
+                        <a class="nav-link" href="usuarios.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
+                            Usuarios
+                        </a>
+                   
+                    </div>
+                </div>
+                <div class="sb-sidenav-footer">
+                    <div class="small">FER Y FANY:</div>
+                    PROPUESTA
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="main-content" id="app">
+        
+        <main class="main">
+            <div>
+                <center>
+                    <img src="/assets/img/0153_t_chocolate-cream-logo_1.png" />
+                </center>
+            </div>
+            <div class="recent-grid grid-template-columns-100">
+                <div class="projects">
+                    <div class="card">
+                        <div class="card-header">
+                            <h1>Administración de Empresas</h1>
+
+                        </div>
+                        <div class="card-body">
+                            <div class="container-form">
+                                <form v-on:submit.prevent="onSubmit" v-on:submit="realizarAccion">
+                                    <div class="form-group m-13rem">
+                                        <span class="p-float-label">
+                                            <p-dropdown @change="obtenerDatos" v-model="txtslcEmpresas"
+                                                :options="arrayEmpresas" option-value="claveEmpresa"
+                                                option-label="nombreEmpresa" placeholder="Selecciona una empresa" />
+                                        </span>
+                                    </div>
+                                    <div class="form-group">
+                                        <span class="p-float-label">
+                                            <p-inputtext id="txtNombreEmpresa" required type="text"
+                                                v-model="txtNombreEmpresa"></p-inputtext>
+                                            <label for="txtNombreEmpresa">Nombre Empresa</label>
+
+                                        </span>
+                                        <span class="p-float-label">
+                                            <p-inputtext id="txtClaveEmpresa" required type="text"
+                                                v-model="txtClaveEmpresa"></p-inputtext>
+                                            <label for="txtClaveEmpresa">Clave de empresa</label>
+                                        </span>
+
+
+                                    </div>
+                                    <div class="form-group">
+                                        <span class="p-float-label">
+                                            <p-inputtext id="txtDireccionEmpresa" required type="text"
+                                                v-model="txtDireccionEmpresa"></p-inputtext>
+                                            <label for="txtDireccionEmpresa">Dirección de empresa</label>
+                                        </span>
+                                    </div>
+                                    <div class="form-group">
+                                        <span class="p-float-label">
+                                            <p-inputtext id="txtEmailEmpresa" required type="email"
+                                                v-model="txtEmailEmpresa"></p-inputtext>
+                                            <label for="txtEmailEmpresa">Email de empresa</label>
+                                        </span>
+                                        <span class="p-float-label">
+                                            <p-inputtext id="txtTelefonoEmpresa" type="text" required
+                                                v-model="txtTelefonoEmpresa"></p-inputtext>
+                                            <label for="txtTelefonoEmpresa">Teléfono de empresa</label>
+                                        </span>
+                                    </div>
+
+
+
+                                    <div class="form-group">
+                                        
+                                        <p-fileupload name="demo[]" url="localhost:8080" @upload="onUpload()"
+                                            @error="errorUpload" :multiple="true" accept="image/*"
+                                            :max-file-size="1000000" class="p-left">
+                                            <template #empty>
+                                                <p>Sube una imagen</p>
+                                            </template>
+                                        </p-fileupload>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <p-button type="submit" label="Guardar Cambios" class=" p-button-edit"
+                                            icon="pi pi-save">
+                                        </p-button>
+                                        <p-button @click="eliminarEmpresa();" label="Eliminar Empresa"
+                                            class=" p-button-edit" icon="pi pi-trash">
+                                        </p-button>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="assets/js/main.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+    <script src="assets/demo/chart-area-demo.js"></script>
+    <script src="assets/demo/chart-bar-demo.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+    <script src="js/datatables-simple-demo.js"></script>
+    <script>
+        var vm = new Vue({
+            components: {
+                'p-datatable': datatable,
+                'p-column': column,
+                'p-inputtext': inputtext,
+                'p-textarea': textarea,
+                'p-dropdown': dropdown,
+                'p-button': button,
+                'p-dialog': dialog,
+                'p-calendar': calendar,
+                'p-fileupload': fileupload,
+
+            },
+            data() {
+                return {
+                    rutaAPI: "http://localhost:8085/panelControlBack/",
+                    selectedProducts: null,
+                    slcfilter: null,
+                    filters: {},
+                    tablaDinamic: true,
+                    displayAgregar: false,
+                    displayActualizar: false,
+                    txtEmailEmpresa: null,
+                    txtNombreEmpresa: null,
+                    txtClaveEmpresa: "",
+                    txtDireccionEmpresa: null,
+                    txtTelefonoEmpresa: null,
+                    txtBannerEmpresa: null,
+                    txtslcEmpresas: [],
+                    datoEmpresa: [],
+
+                    txtEmailEmpresaA: null,
+                    txtNombreEmpresaA: null,
+                    txtClaveEmpresaA: null,
+                    txtDireccionEmpresaA: null,
+                    txtTelefonoEmpresaA: null,
+                    txtBannerEmpresaA: null,
+                    arrayInactivos: [],
+                    arrayActivos: [],
+                    idEmpresa: 1,
+                    arrayEmpresas: [],
+
+                }
+            },
+            mounted() {
+
+                this.getEmpresa();
+            },
+            methods: {
+                openagregar() {
+                    this.displayAgregar = true;
+                },
+                openActualizar() {
+                    this.displayActualizar = true;
+                },
+                errorUpload() {
+                    window.alert("ha ocurrido un error");
+                },
+                onUpload() {
+
+                    window.alert("Imagen subida con exito.");
+                    // this.inventarioLaptops();
+                },
+                getEmpresa() {
+                    vn = this;
+                    axios.get(this.rutaAPI + 'getEmpresas')
+                        .then((response) => {
+                            vn.arrayEmpresas = response.data;
+                            console.log(response.data);
+                        }).catch(error => console.log(error))
+                },
+                pdialogActualizar(field) {
+                    this.openActualizar();
+                    this.idProducto = field.id,
+                        this.txtEmailEmpresaA = field.email_Empresa,
+                        this.txtNombreEmpresaA = field.Nombre_Empresa,
+                        this.txtClaveEmpresaA = field.clave_Empresa,
+                        this.txtDireccionEmpresaA = field.direccion_Empresa,
+                        this.txtBannerEmpresaA = field.banner_Empresa,
+                        this.txtEdadA = field.edad
+                    this.txtTelefonoEmpresaA = field.telefono_Empresa
+                },
+                obtenerDatos() {
+                    vm = this;
+                    axios({
+                        method: 'post',
+                        url: vm.rutaAPI + 'buscaEmpresa',
+                        data: {
+                            claveEmpresa: vm.txtslcEmpresas,
+                        },
+                    }).then(response => {
+                        vm.datoEmpresa = response.data;
+                        //console.log(response.data);
+                        this.idEmpresa=vm.datoEmpresa.idEmpresa
+                        this.txtNombreEmpresa = vm.datoEmpresa.nombreEmpresa;
+                        if (this.txtNombreEmpresa == "Agregar nueva empresa") {
+                            this.txtNombreEmpresa = "";
+                        }
+                        this.txtClaveEmpresa = vm.datoEmpresa.claveEmpresa;
+                        this.txtDireccionEmpresa = vm.datoEmpresa.direccionEmpresa;
+                        this.txtEmailEmpresa = vm.datoEmpresa.emailEmpresa;
+                        this.txtTelefonoEmpresa = vm.datoEmpresa.telefonoEmpresa;
+                        console.log("exito en el envio de dato");
+                        //window.alert("El provedor se inserto correctamente");
+
+                    }).catch(err => {
+                        console.log(err);
+                        window.alert("Hubo un error intentalo de nuevo");
+                    })
+
+                }, realizarAccion() {
+                    if (this.idEmpresa == 1) {//Si es nueva empresa
+                        this.agregarEmpresa();
+                    } else {
+                        this.actualizarDatosEmpresa();
+                    }
+                }, agregarEmpresa() {
+                    vm = this;
+                    axios({
+                        method: 'post',
+                        url: vm.rutaAPI + 'agregarEmpresa',
+                        data: {
+                            nombreEmpresa: vm.txtNombreEmpresa,
+                            direccionEmpresa: vm.txtDireccionEmpresa,
+                            telefonoEmpresa: vm.txtTelefonoEmpresa,
+                            emailEmpresa: vm.txtEmailEmpresa,
+                            claveEmpresa: vm.txtClaveEmpresa,
+                        },
+                        headers: {
+                            //Authorization: localStorage.getItem('tokenEmpresa')
+                        },
+                    }).then(response => {
+                        window.alert("Empresa añadida correctamente");
+                        this.limpiarCampos();
+                        this.getEmpresa();
+                    }).catch(function (error) {
+                        window.alert("Error: " + error.response.data);
+                    });
+                }, actualizarDatosEmpresa() {
+                    vm = this;
+                    axios({
+                        method: 'post',
+                        url: vm.rutaAPI + 'actualizarEmpresa',
+                        data: {
+                            idEmpresa: this.idEmpresa,
+                            nombreEmpresa: vm.txtNombreEmpresa,
+                            direccionEmpresa: vm.txtDireccionEmpresa,
+                            telefonoEmpresa: vm.txtTelefonoEmpresa,
+                            emailEmpresa: vm.txtEmailEmpresa,
+                            claveEmpresa: vm.txtClaveEmpresa,
+                        },
+                        headers: {
+                            Authorization: localStorage.getItem('tokenEmpresa')
+                        },
+                    }).then(response => {
+                        window.alert(response.data);
+                        this.getEmpresa();
+                    }).catch(function (error) {
+                        window.alert("Error " + error.response.status + ": " + error.response.data);
+                    })
+                }, eliminarEmpresa() {
+                    if (this.idEmpresa==1) {
+                        window.alert("Selecciona una empresa para continuar")
+                    } else {
+                    vm = this;
+                    axios({
+                        method: 'post',
+                        url: vm.rutaAPI + 'eliminarEmpresa',
+                        data: {
+                            idEmpresa: vm.idEmpresa,
+
+                        },
+                        headers: {
+                            //Authorization: localStorage.getItem('tokenEmpresa')
+                        },
+                    }).then(response => {
+                        window.alert("Empresa Eliminado Correctamente");
+                        this.getEmpresa();
+                        this.limpiarCampos();
+                    }).catch(err => {
+                        console.log(err);
+                        window.alert("Hubo un error al eliminar al empresa, inténtalo nuevamente");
+                    })
+                }
+                },limpiarCampos() {
+                    this.idEmpresa=1;
+                    vm.txtNombreEmpresa = "";
+                    vm.txtDireccionEmpresa = "";
+                    vm.txtTelefonoEmpresa = "";
+                    vm.txtEmailEmpresa = "";
+                    vm.txtClaveEmpresa = "";
+                },
+
+            },
+
+        }).$mount('#app');
+    </script>
+</body>
+
+</html>

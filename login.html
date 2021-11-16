@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width">
+    <title>Iniciar sesión</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!--Fonts-->
+    <link rel="stylesheet"
+        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <!--vue-->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <!--Primevue-->
+    <link rel="stylesheet" href="node_modules/primevue/resources/primevue.css">
+    <link rel="stylesheet" href="node_modules/primeicons/primeicons.css">
+    <link rel="stylesheet" href="node_modules/primevue/resources/themes/saga-blue/theme.css">
+
+    <!--Components-->
+    <script src="node_modules/primevue/components/button/button.umd.min.js"></script>
+    <script src="node_modules/primevue/components/inputtext/inputtext.umd.js"></script>
+    <script src="node_modules/primevue/components/dropdown/dropdown.umd.js"></script>
+
+    <!--<script>
+        function load() {
+            var token = localStorage.getItem('tokenUsuario');
+            if (localStorage.getItem('tokenUsuario') === null) {
+                //console.log("no hay token")
+            } else {
+                //console.log("hay token")
+                window.location = "menu.html";
+            }
+
+        }
+        window.onload = load;
+    </script>
+-->
+</head>
+
+<body>
+
+    <div class="wrapper" id="app">
+        <div id="formContent">
+            <h2 class="active"> Inicie sesión para continuar </h2>
+            <div>
+                <img src="/assets/img/Captura de pantalla 2021-11-14 132948.png"/>
+            </div>
+
+            <!-- Login Form -->
+            <form v-on:submit.prevent="onSubmit" v-on:submit="iniciarSesion" class="frm-login">
+                <input type="text" v-model="txtCodigoEmpresa" required placeholder="Código de Empresa">
+                <input type="email" v-model="txtCorreo" required placeholder="Correo">
+                <input type="password" v-model="txtPass" required placeholder="Contraseña">
+                <input type="submit" value="Iniciar sesión" @keyup.enter="submit">
+            </form>
+
+            <div id="formFooter">
+                <a class="underlineHover" href="#">¿Olvidaste tu contraseña?</a>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!--Vue-->
+    <script>
+        var vm = new Vue({
+            components: {
+
+                'p-button': button,
+                'p-inputtext': inputtext
+
+            },
+            data() {
+                return {
+                    txtCorreo: null,
+                    txtCodigoEmpresa: null,
+                    txtPass: null,
+                    rutaAPI: "http://localhost:8082/accesosBack/",
+
+                };
+
+            },
+            mounted() {
+            },
+            methods: {
+                iniciarSesion() {
+                    vm = this;
+                    axios.post(this.rutaAPI + 'login', {
+                        correo: vm.txtCodigoEmpresa,
+                        correo: vm.txtCorreo,
+                        contrasenia: vm.txtPass,
+                    }).then(response => {
+                        window.alert("Ok");
+                        console.log(response);
+                        //localStorage.setItem("tokenUsuario", response.data);
+                        //window.location.href = "menu.html";
+                    }).catch(err => {
+                        console.log(err);
+                        window.alert("usuario o contraseña incorrecto");
+                    })
+                },
+            },
+        }).$mount('#app');
+    </script>
+    <!--Fin Vue-->
+</body>
+
+</html>

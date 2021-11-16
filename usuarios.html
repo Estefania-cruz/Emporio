@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Emporio</title>
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
+        crossorigin="anonymous"></script>
+    crossorigin="anonymous"></script>
+    
+    <!--Fonts-->
+    <link rel="stylesheet"
+        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Raleway:wght@300&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+        rel="stylesheet">
+    <script src="node_modules/primevue/components/datatable/datatable.umd.min.js"></script>
+    <script src="node_modules/primevue/components/column/column.umd.min.js"></script>
+    <script src="node_modules/primevue/components/button/button.umd.min.js"></script>
+    <script src="node_modules/primevue/components/inputtext/inputtext.umd.min.js"></script>
+    <script src="node_modules/primevue/components/dialog/dialog.umd.min.js"></script>
+    <script src="node_modules/primevue/components/dropdown/dropdown.umd.min.js"></script>
+    <script src="node_modules/primevue/components/textarea/textarea.umd.min.js"></script>
+    <script src="node_modules/primevue/components/calendar/calendar.umd.min.js"></script>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <!--vue-->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <!--Primevue-->
+    <link rel="stylesheet" href="node_modules/primevue/resources/primevue.css">
+    <link rel="stylesheet" href="node_modules/primeicons/primeicons.css">
+    <link rel="stylesheet" href="node_modules/primevue/resources/themes/saga-blue/theme.css">
+
+</head>
+
+<body class="sb-nav-fixed">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <!-- Navbar Brand-->
+        <a class="navbar-brand ps-3" href="#">Usuario</a>
+        <!-- Sidebar Toggle-->
+        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
+                class="fas fa-bars"></i></button>
+    </nav>
+
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+                        <div class="sb-sidenav-menu-heading">Inicio</div>
+                        <a class="nav-link" href="index.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-comment"></i></div>
+                            Menu
+                        </a>
+                        
+                        <a class="nav-link" href="familia.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-house-user"></i></div>
+                            Familia
+                        </a>
+                        <a class="nav-link" href="productos.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-shopping-bag"></i></div>
+                            Productos
+                        </a>
+                        <a class="nav-link" href="categoria.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-shopping-bag"></i></div>
+                            Categorias
+
+                        </a>
+                        <a class="nav-link" href="empresas.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-building"></i></div>
+                            Administracion de Empresas
+                        </a>
+                        <a class="nav-link" href="promociones.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-shopping-bag"></i></div>
+                            Promociones
+                        </a>
+                   
+                    </div>
+                </div>
+                <div class="sb-sidenav-footer">
+                    <div class="small">FER Y FANY:</div>
+                    PROPUESTA
+                </div>
+            </nav>
+        </div>
+    </div>
+        <div class="main-content" id="app">
+            <main class="main">
+                <!--parte-->
+                <div>
+                    <center>
+                        <img src="/assets/img/0153_t_chocolate-cream-logo_1.png" />
+                    </center>
+                </div>
+
+                <div class="recent-grid grid-template-columns-100">
+                    <div class="projects">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="table-header div-flex">
+
+                                    <span class="p-input-icon-left">
+                                        <i class="pi pi-search"></i>
+                                        <p-inputtext v-model="filters['global']" placeholder="Búsqueda Global"
+                                            id="search" />
+                                    </span>
+
+                                    <form class="wgt-auto">
+                                        <p-button
+                                            :label="tablaDinamic == true ? 'Mostrar activos' : 'Mostrar inactivos'"
+                                            class="p-button-edit"
+                                            :icon="tablaDinamic == true ? 'pi pi-external-link' : 'pi pi-inbox'"
+                                            @click="tablaDinamic == true ? tablaDinamic = false : tablaDinamic = true">
+                                        </p-button>
+                                        <p-button label="Crear usuario" class="p-button-edit" icon="pi pi-plus"
+                                            @click="openagregar()"></p-button>
+
+
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="container-form">
+                                    <form>
+                                        <div class="form-group">
+                                            <span class="p-float-label">
+                                                <p-dropdown v-model="txtslcUsuarios" :options="arrayProductos"
+                                                    option-label="Nombre" placeholder="Selecciona un usuario" />
+                                            </span>
+                                        </div>
+                                        <div class="form-group">
+
+                                            <span class="p-float-label">
+                                                <p-inputtext id="txtNombre" required type="text" v-model="txtNombre">
+                                                </p-inputtext>
+                                                <label for="txtNombre">Nombre</label>
+                                            </span>
+                                            <span class="p-float-label">
+                                                <p-inputtext id="txtApellidoPaterno" required type="text"
+                                                    v-model="txtApellidoPaterno"></p-inputtext>
+                                                <label for="txtApellidoPaterno">Apellido Paterno</label>
+                                            </span>
+                                            <span class="p-float-label">
+                                                <p-inputtext id="txtApellidoMaterno" required type="text"
+                                                    v-model="txtApellidoMaterno"></p-inputtext>
+                                                <label for="txtApellidoMaterno">Apellido Materno</label>
+                                            </span>
+                                        </div>
+                                        <div class="form-group">
+                                            <span class="p-float-label">
+                                                <p-inputtext id="txtCurp" required type="email" v-model="txtCurp">
+                                                </p-inputtext>
+                                                <label for="txtCurp">Crup</label>
+                                            </span>
+                                            <span class="p-float-label">
+                                                <p-inputtext id="txtEdad" type="text" required v-model="txtEdad">
+                                                </p-inputtext>
+                                                <label for="txtEdad">Edad</label>
+                                            </span>
+                                        </div>
+                                        <div class="form-group">
+                                            <span class="p-float-label">
+                                                <p-inputtext id="txtcorreo" required type="text" v-model="txtcorreo">
+                                                </p-inputtext>
+                                                <label for="txtcorreo">Correo</label>
+                                            </span>
+                                            <span class="p-float-label">
+                                                <p-inputtext id="txtTelefono" required type="text"
+                                                    v-model="txtTelefono">
+                                                </p-inputtext>
+                                                <label for="txtTelefono">Telefono</label>
+                                            </span>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <p-fileupload name="demo[]" url="localhost:8080" @upload="onUpload()"
+                                                @error="errorUpload" :multiple="true" accept="image/*"
+                                                :max-file-size="1000000">
+                                                <template #empty>
+                                                    <p>Sube una imagen</p>
+                                                </template>
+                                            </p-fileupload>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <p-button label="Guardar Cambios" class=" p-button-edit" icon="pi pi-save">
+                                            </p-button>
+                                            <p-button label="Eliminar Usuario" class=" p-button-edit"
+                                                icon="pi pi-trash">
+                                            </p-button>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                
+                <p-dialog header="Crear usuario" :visible.sync="displayAgregar" :modal="true">
+                    <form>
+                        <div class="form-group">
+                            <span class="p-float-label">
+                                <p-inputtext id="txtcorreo" required type="email" v-model="txtcorreo"></p-inputtext>
+                                <label for="txtcorreo">Correo</label>
+                            </span>
+
+                        </div>
+                        <div class="form-group">
+                            <span class="p-float-label">
+                                <p-inputtext id="txtNombre" required type="text" v-model="txtNombre"></p-inputtext>
+                                <label for="txtNombre">Nombre</label>
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <span class="p-float-label">
+                                <p-inputtext id="txtApellidoPaterno" required type="text" v-model="txtApellidoPaterno">
+                                </p-inputtext>
+                                <label for="txtApellidoPaterno">Apellido Paterno</label>
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <span class="p-float-label">
+                                <p-inputtext id="txtApellidoMaterno" required type="text" v-model="txtApellidoMaterno">
+                                </p-inputtext>
+                                <label for="txtApellidoMaterno">Apellido Materno</label>
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <span class="p-float-label">
+                                <p-inputtext id="txtTelefono" type="text" required v-model="txtTelefono"></p-inputtext>
+                                <label for="txtTelefono">Teléfono</label>
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <span class="p-float-label">
+                                <p-inputtext id="txtCurp" type="text" required v-model="txtCurp"></p-inputtext>
+                                <label for="txtCurp">CURP</label>
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <span class="p-float-label">
+                                <p-inputtext id="txtEdad" required type="text" v-model="txtEdad"></p-inputtext>
+                                <label for="txtEdad">Edad</label>
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <span class="p-float-label">
+                                <p-inputtext id="txtContrasenia" required type="password" v-model="txtContrasenia">
+                                </p-inputtext>
+                                <label for="txtContrasenia">Contraseña</label>
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <span class="p-float-label">
+                                <p-inputtext id="txtConfContrasenia" required type="password"
+                                    v-model="txtConfContrasenia">
+                                </p-inputtext>
+                                <label for="txtConfContrasenia">Confirmar contraseña</label>
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <p-button label="Guardar" class=" p-button-edit" icon="pi pi-save"></p-button>
+                        </div>
+
+                    </form>
+
+                </p-dialog>
+                <p-dialog header="Actualizar información" :visible.sync="displayActualizar" :modal="true">
+                    <form>
+                        <div class="form-group">
+                            <span class="p-float-label">
+                                <p-inputtext id="txtcorreo" required type="email" v-model="txtcorreoA"></p-inputtext>
+                                <label for="txtcorreo">Correo</label>
+                            </span>
+
+                        </div>
+                        <div class="form-group">
+                            <span class="p-float-label">
+                                <p-inputtext id="txtNombre" required type="text" v-model="txtNombreA"></p-inputtext>
+                                <label for="txtNombre">Nombre</label>
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <span class="p-float-label">
+                                <p-inputtext id="txtApellidoPaterno" required type="text" v-model="txtApellidoPaternoA">
+                                </p-inputtext>
+                                <label for="txtApellidoPaterno">Apellido Paterno</label>
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <span class="p-float-label">
+                                <p-inputtext id="txtApellidoMaterno" required type="text" v-model="txtApellidoMaternoA">
+                                </p-inputtext>
+                                <label for="txtApellidoMaterno">Apellido Materno</label>
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <span class="p-float-label">
+                                <p-inputtext id="txtTelefono" required type="text" v-model="txtTelefonoA"></p-inputtext>
+                                <label for="txtTelefono">Teléfono</label>
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <span class="p-float-label">
+                                <p-inputtext id="txtCurp" required type="text" v-model="txtCurpA"></p-inputtext>
+                                <label for="txtCurp">CURP</label>
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <span class="p-float-label">
+                                <p-inputtext id="txtEdad" required type="number" v-model="txtEdadA"></p-inputtext>
+                                <label for="txtEdad">Edad</label>
+                            </span>
+
+                        </div>
+                        <div class="form-group">
+                            <span class="p-float-label">
+                                <p-inputtext id="txtContrasenia" required type="password" v-model="txtContraseniaA">
+                                </p-inputtext>
+                                <label for="txtContrasenia">Contraseña</label>
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <span class="p-float-label">
+                                <p-inputtext id="txtConfContrasenia" required type="password"
+                                    v-model="txtConfContraseniaA">
+                                </p-inputtext>
+                                <label for="txtConfContrasenia">Confirmar contraseña</label>
+                            </span>
+                        </div>
+
+                        <div class="form-group">
+                            <p-button label="Guardar" class=" p-button-edit" icon="pi pi-save"></p-button>
+                        </div>
+                    </form>
+                </p-dialog>
+            </main>
+        </div>
+    
+    <script src="assets/js/main.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+    <script src="assets/demo/chart-area-demo.js"></script>
+    <script src="assets/demo/chart-bar-demo.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+    <script src="js/datatables-simple-demo.js"></script>
+
+    <script>
+        var vm = new Vue({
+            components: {
+                'p-datatable': datatable,
+                'p-column': column,
+                'p-inputtext': inputtext,
+                'p-textarea': textarea,
+                'p-dropdown': dropdown,
+                'p-button': button,
+                'p-dialog': dialog,
+                'p-calendar': calendar,
+            },
+            data() {
+                return {
+                    rutaAPI: "http://localhost:/",
+                    selectedProducts: null,
+                    slcfilter: null,
+                    filters: {},
+                    tablaDinamic: true,
+                    displayAgregar: false,
+                    displayActualizar: false,
+                    txtcorreo: null,
+                    txtNombre: null,
+                    txtApellidoPaterno: null,
+                    txtApellidoMaterno: null,
+                    txtTelefono: null,
+                    txtCurp: null,
+                    txtEdad: null,
+                    txtContrasenia: null,
+                    txtConfContrasenia: null,
+
+                    txtcorreoA: null,
+                    txtNombreA: null,
+                    txtApellidoPaternoA: null,
+                    txtApellidoMaternoA: null,
+                    txtTelefonoA: null,
+                    txtCurpA: null,
+                    txtEdadA: null,
+                    txtContraseniaA: null,
+                    txtConfContraseniaA: null,
+                    arrayInactivos: [],
+                    arrayActivos: [],
+                    idProducto: 0,
+                    arrayProductos: [
+                        {
+                            id: 1,
+                            correo: "miguel@grancompu.com",
+                            Nombre: "Miguel Angel",
+                            apellidoPaterno: "Jimenez",
+                            apellidoMaterno: "Montesinos",
+                            telefono: "5522573045",
+                            curp: "JIMM991216HOCMNG06",
+                            edad: 22,
+                        }
+
+                    ],
+
+                }
+            },
+            mounted() {
+
+
+            },
+            methods: {
+                openagregar() {
+                    this.displayAgregar = true;
+                },
+                openActualizar() {
+                    this.displayActualizar = true;
+                },
+                pdialogActualizar(field) {
+                    this.openActualizar();
+                    this.idProducto = field.id,
+                        this.txtcorreoA = field.correo,
+                        this.txtNombreA = field.Nombre,
+                        this.txtApellidoPaternoA = field.apellidoPaterno,
+                        this.txtApellidoMaternoA = field.apellidoMaterno,
+                        this.txtTelefonoA = field.telefono,
+                        this.txtCurpA = field.curp,
+                        this.txtEdadA = field.edad
+                    this.txtTelefonoA = field.telefono
+                },
+
+            },
+        }).$mount('#app');
+    </script>
+</body>
+</html>
